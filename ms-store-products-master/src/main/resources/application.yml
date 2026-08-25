@@ -1,0 +1,29 @@
+## Configuracion de Spring
+spring:
+  application:
+    name: ms-store-products
+  datasource:
+    url: jdbc:postgresql://localhost:5432/store-products
+    username: postgres
+    password: postgres
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+## Configuracion de Instancia
+server:
+  port: 8088
+  ## Configuracion de la ruta de acceso de la API
+  ##servlet:
+  ##context-path: /store-products/v1/api
+
+## Configuracion del cliente de Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    hostname: ms-store-products

@@ -1,0 +1,31 @@
+## Configuracion de Instancia
+server:
+  port: 8082
+
+## Configuracion del cliente de Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    hostname: ms-store-orders
+
+## Configuracion de Spring
+spring:
+  application:
+    name: ms-store-orders
+  datasource:
+    url: jdbc:postgresql://localhost:5432/INVENTORY
+    username: odoo15
+    password: odoo15
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+## Configuracion secundaria (custom)
+getProduct:
+  url: http://ms-store-products/products/%s
+##   url: http://ms-inventory-products/products/%s
